@@ -47,7 +47,7 @@ if 'words_data_list' not in st.session_state:
     except FileNotFoundError:
         # Fallback if words_to_learn doesn't exist
         try:
-            words_data = pd.read_csv("data/french_words.csv")
+            words_data = pd.read_csv("data/english_words.csv")
         except FileNotFoundError:
             st.error("Error: Could not find data/french_words.csv. Please make sure the data folder is uploaded to GitHub!")
             st.stop()
@@ -91,11 +91,11 @@ st.title("📇 Flashy - Language Learning")
 
 # Display the card based on whether it is flipped or not
 if not st.session_state.is_flipped:
-    # FRONT OF CARD (French)
+    # FRONT OF CARD (English)
     st.markdown(f"""
         <div class="flashcard">
-            <div class="language-text">French</div>
-            <div class="word-text">{st.session_state.current_word['French']}</div>
+            <div class="language-text">English</div>
+            <div class="word-text">{st.session_state.current_word['English']}</div>
         </div>
     """, unsafe_allow_html=True)
     
@@ -103,11 +103,11 @@ if not st.session_state.is_flipped:
     st.button("🔄 Flip Card", on_click=flip_card, use_container_width=True)
 
 else:
-    # BACK OF CARD (English)
+    # BACK OF CARD (Persian)
     st.markdown(f"""
         <div class="flashcard" style="background-color: #91c2af; color: white;">
-            <div class="language-text" style="color: white;">English</div>
-            <div class="word-text" style="color: white;">{st.session_state.current_word['English']}</div>
+            <div class="language-text" style="color: white;">Persian</div>
+            <div class="word-text" style="color: white;">{st.session_state.current_word['Persian']}</div>
         </div>
     """, unsafe_allow_html=True)
     
